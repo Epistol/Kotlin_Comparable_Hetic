@@ -13,18 +13,18 @@ fun fibo(n: Int?): Int? {
     fib(0) = fib(1) = 1
     fib(null) = null */
 
-    if ( n == null && n < 0) {
+    if (n != null && n < 0) {
         return null
     }
 
     when (n) {
 //        !in validNu -> return null
-
+        null -> return null
         0 -> return 1
         1 -> return 1
-        null -> return null
-
     }
+
+
 
 
 //Ancienne version
