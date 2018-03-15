@@ -24,7 +24,15 @@ fun fibo(n: Int?): Int? {
         1 -> return 1
     }
 
+    // bout manquant
 
+    var acc = mutableListOf(1,1)
+    for(i in 2..n){
+        acc.add(acc[i-2] + acc[i-3])
+    }
+    return acc.last()
+
+}
 
 
 //Ancienne version
@@ -38,7 +46,7 @@ fun fibo(n: Int?): Int? {
         }*/
 
 
-}
+
 
 fun main(args: Array<String>) {
     var a = fibo(12)
