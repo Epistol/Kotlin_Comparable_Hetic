@@ -7,7 +7,7 @@ fun incrementer(v: Int): Int {
     else return v + c
 }
 
-fun fibo(n: Int?): Int? {
+fun fibo(v: Int?): Int? {
 /*  fib(n) = fib(n - 1) + fib(n - 2)
     fib(<0) = null
     fib(0) = fib(1) = 1
@@ -21,7 +21,7 @@ fun fibo(n: Int?): Int? {
         return null
     }
 
-    var acc = mutablelistof(1, 1)
+    var acc = mutableListOf(1, 1)
     for (i in 2..v) {
         acc.add(acc[i - 2] + acc[i - 1])
     }
