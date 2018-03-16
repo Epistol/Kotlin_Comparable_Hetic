@@ -1,46 +1,60 @@
 package AppliTest
 
+open class Personne(p: String, n: String) {
 
-fun incrementer(v: Int): Int {
-    val c = 1
-    if (v == null) return c
-    else return v + c
-}
+    constructor():this("Toto","Ce héros")
 
-fun fibo(v: Int?): Int? {
-/*  fib(n) = fib(n - 1) + fib(n - 2)
-    fib(<0) = null
-    fib(0) = fib(1) = 1
-    fib(null) = null */
+    var prenom = p
+    var nom = n
 
-
-    if (v == null || v < 0) {
-        return null
+    open fun direBonjour(){
+        println("Bonjour")
     }
-    if (v <= 1) {
-        return null
-    }
-
-    var acc = mutableListOf(1, 1)
-    for (i in 2..v) {
-        acc.add(acc[i - 2] + acc[i - 1])
-    }
-
-    return acc.last()
 
 }
 
+open class VIP(p:String, n:String) : Personne(p,n){
+    override fun direBonjour(){
+        println("Wesh")
+    }
+}
 
-//Ancienne version
-/*
-        if (n == null) return null
 
-        else if (n == 0 || n == 1) return 1
-        else if (n < 0) return null
-        else {
-            return (fibo(n - 1) ?: 0) + fibo(n - 2)!!
-        }*/
+open class Avion{
+    open fun faireLePLein(){}
+}
 
+interface Bateau{
+    open fun faireLePLein(){}
+}
+class Hydravion : Avion(), Bateau{
+    override fun faireLePLein() {
+//        On choisi de ne pas choisir quel truc remplir
+//        super.faireLePLein()
+//        On rempli l'avion puis le bateau
+        super<Avion>.faireLePLein()
+        super<Bateau>.faireLePLein()
+    }
+}
+
+fun faire(x:Int, y: Int, f:((Int,Int) -> Int)) : Int){
+    return f(x,y)
+}
+
+//BERK
+
+faire(1,2){
+    a,b -> a+b
+}
+
+// VERSION COURTE
+
+class Personne2(var p: String, var n: String)
+
+//Avec des valeurs pré-remplies
+
+class Personne3(var p: String = "Toto", var n: String = "Pas important")
+//{}
 
 
 
