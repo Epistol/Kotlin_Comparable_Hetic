@@ -13,23 +13,19 @@ fun fibo(n: Int?): Int? {
     fib(0) = fib(1) = 1
     fib(null) = null */
 
-    if (n != null && n < 0) {
+
+    if (v == null || v < 0) {
+        return null
+    }
+    if (v <= 1) {
         return null
     }
 
-    when (n) {
-//        !in validNu -> return null
-        null -> return null
-        0 -> return 1
-        1 -> return 1
+    var acc = mutablelistof(1, 1)
+    for (i in 2..v) {
+        acc.add(acc[i - 2] + acc[i - 1])
     }
 
-    // bout manquant
-
-    var acc = mutableListOf(1,1)
-    for(i in 2..n){
-        acc.add(acc[i-2] + acc[i-3])
-    }
     return acc.last()
 
 }
