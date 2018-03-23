@@ -10,9 +10,8 @@ class Arbre : Comparable<Arbre> {
     var valeur: Int = 0
     // 10 elements aléatoires dans un tableau
     var table = IntArray(10)
-//
-//    var gauche: Arbre? = null
-//    var droite: Arbre? = null
+
+
 
     fun init_tableau_valeurs() {
         val n = table.size - 1
@@ -23,8 +22,8 @@ class Arbre : Comparable<Arbre> {
     // Trouver si une valeur est présente dans la liste
     // Return a boolean
     fun find(i: Int): Boolean {
+        init_tableau_valeurs()
         return table.contains(i)
-
     }
 
     override fun compareTo(other: Arbre): Int {
@@ -32,19 +31,20 @@ class Arbre : Comparable<Arbre> {
         return 0
     }
 
-    // Rien à insérer
-    /* fun inserer(i: Int) {
 
-     }*/
-
-    fun main(args: Array<String>) {
-        init_tableau_valeurs()
-        if(find(42))
-            println("Trouvé")
-        else {
-            println("Pas trouvé :/ ")
-        }
-
-    }
 
 }
+
+fun main(args: Array<String>) {
+    if(Arbre().find(42)){
+        println("Yay")
+    }
+    else {
+        println("Nay")
+    }
+}
+
+
+
+
+
