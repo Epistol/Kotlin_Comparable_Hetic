@@ -11,12 +11,18 @@ class Arbre : Comparable<Arbre> {
     // 10 elements aléatoires dans un tableau
     var table = IntArray(10)
 
+    fun randomiser(): Int {
+        val rand_number = (Math.random() * 100).toInt()
+        return rand_number
+    }
 
 
     fun init_tableau_valeurs() {
         val n = table.size - 1
         for (i in 1..n)
-            table[i] = (Math.random() * 100).toInt()
+                table[i] = randomiser()
+        for (item in table)
+            println(item)
     }
 
     // Trouver si une valeur est présente dans la liste
@@ -32,15 +38,14 @@ class Arbre : Comparable<Arbre> {
     }
 
 
-
 }
 
 fun main(args: Array<String>) {
-    if(Arbre().find(42)){
-        println("Yay")
-    }
-    else {
-        println("Nay")
+    val chiffre: Int = 42
+    if (Arbre().find(chiffre)) {
+        println("Nous avons trouvé votre chiffre : " + chiffre)
+    } else {
+        println("Nous n'avons pas trouvé le chiffre : " + chiffre)
     }
 }
 
